@@ -5,6 +5,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
- gi
+    "dev": ""
+  },
+  "devDependencies": {
+    "react": "^18.1.0",
+    "typescript": "^4.6.4"
   }
 }
