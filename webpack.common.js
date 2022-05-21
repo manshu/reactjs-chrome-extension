@@ -2,6 +2,8 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const tailwindcss = require('tailwindcss')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
     entry: {
@@ -18,13 +20,22 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                use: ['style-loader', 'css-loader'],
                 test: /\.css$/i,
+                use: ['style-loader', 'css-loader', {
+                    loader: 'postcss-loader', // postcss loader needed for tailwindcss
+                    options: {
+                      postcssOptions: {
+                        ident: 'postcss',
+                        plugins: [tailwindcss, autoprefixer],
+                      },
+                    },
+                },
+              ],
             },
             {
                 type: 'assets/resource',
                 test: /\.(png|jpg|jpeg|gif|woff|woff2|tff|eot|svg)$/,
-            }
+            },
         ]
     },
     "plugins": [
