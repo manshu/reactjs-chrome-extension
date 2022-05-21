@@ -1,7 +1,12 @@
 import React from 'react';
+import '../assets/tailwind.css'
 import { createRoot } from 'react-dom/client'
 
-const test = <p>Hello World</p>
+const test = (
+    <h1 className="text-3xl text-green-500 font-bold underline">
+        Hello Option!
+    </h1>
+)
 
 const container = document.createElement('div')
 document.body.appendChild(container)
