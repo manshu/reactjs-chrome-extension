@@ -8,7 +8,10 @@
     "watch": "webpack --watch --progress --config webpack.config.js"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.0",
     "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "ts-loader": "^9.3.0",
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",
