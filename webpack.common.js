@@ -7,10 +7,11 @@ const autoprefixer = require('autoprefixer')
 
 module.exports = {
     entry: {
-        popup: path.resolve('src/popup/popup.tsx'),
-        options: path.resolve('src/options/options.tsx'),
+        popup: path.resolve('src/popup/index.tsx'),
+        options: path.resolve('src/options/index.tsx'),
         background: path.resolve('src/background/background.ts'),
-        contentScript: path.resolve('src/contentScript/contentScript.ts')
+        contentScript: path.resolve('src/contentScript/contentScript.ts'),
+        newTab: path.resolve('src/tabs/index.tsx'),
     },
     module: {
         rules: [
@@ -26,19 +27,19 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                          importLoaders: 1,
+                            importLoaders: 1,
                         },
                     },
                     {
-                    loader: 'postcss-loader', // postcss loader needed for tailwindcss
-                    options: {
-                      postcssOptions: {
-                        ident: 'postcss',
-                        plugins: [tailwindcss, autoprefixer],
-                      },
+                        loader: 'postcss-loader', // postcss loader needed for tailwindcss
+                        options: {
+                            postcssOptions: {
+                                ident: 'postcss',
+                                plugins: [tailwindcss, autoprefixer],
+                            },
+                        },
                     },
-                },
-              ],
+                ],
             },
             {
                 type: 'assets/resource',
@@ -59,6 +60,7 @@ module.exports = {
         ...getHtmlPlugins([
             'popup',
             'options',
+            'newTab'
         ])
     ],
     resolve: {
@@ -75,7 +77,7 @@ module.exports = {
     }
 }
 
-function getHtmlPlugins(chunks){
+function getHtmlPlugins(chunks) {
     return chunks.map(chunk => new HtmlPlugin({
         title: 'React Extension',
         filename: `${chunk}.html`,

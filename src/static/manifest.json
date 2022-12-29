@@ -8,6 +8,15 @@
         "default_title": "React Boilerplate",
         "default_icon" : "icon.png"
     },
+    "chrome_url_overrides": {
+        "newtab": "newTab.html"
+    },
+    "permissions": [
+        "tabs",
+        "bookmarks",
+        "storage",
+        "identity"
+    ],
     "icons": {
         "16" : "icon.png",
         "48" : "icon.png",

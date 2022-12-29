@@ -1,7 +1,7 @@
 {
   "name": "reactjs-chrome",
   "author": "Himanshu Batra",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -29,6 +29,7 @@
   "dependencies": {
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
+    "react-router-dom": "6.2",
     "tailwindcss": "^3.0.24"
   }
 }
